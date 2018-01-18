@@ -6,9 +6,11 @@
 
 // Document Ready Function. All of your jQuery should go in here. 
 $( document ).ready(function() {
-  
-
-
+	
+	$("#submit").click(function(){
+	var output = $("input").val();
+		$("p").text(output + "ay");
+	});
 
 });
 
