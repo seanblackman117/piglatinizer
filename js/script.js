@@ -10,11 +10,22 @@ $(document).ready(function() {
 	$("#submit").click(function() {
 		var userInput = $("input").val();
 		console.log(sentenceToPigLatin(userInput));
-		$("p").html(sentenceToPigLatin(userInput));
+		
+	
 	});
 
+	function wordToPigLatin (word) {
+		return word + "ay";
+	}
+
+
 	function sentenceToPigLatin(sentence) {
-		return sentence.split(" ");
+		var words = sentence.split(" ");
+		for (var wordIdx = 0; wordIdx < words.length; wordIdx = wordIdx + 1){
+			words[wordIdx] = wordToPigLatin(words[wordIdx]);
+		}
+		var result = words.join(" ");
+		$("p").html(result);
 	}
 });
 
