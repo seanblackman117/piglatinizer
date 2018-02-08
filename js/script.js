@@ -6,26 +6,31 @@
 
 // Document Ready Function. All of your jQuery should go in here. 
 $(document).ready(function() {
+/*global $*/
+	
 
 	$("#submit").click(function() {
-		var userInput = $("input").val();
+		wordToPigLatin(sentenceToPigLatin(userInput));
+		$("p").html(result + firstLetter + "ay");
 		console.log(sentenceToPigLatin(userInput));
-		
-	
 	});
 
-	function wordToPigLatin (word) {
-		return word + "ay";
+	function wordToPigLatin(word) {
+		var userInput = $("input").val();
+		var firstLetter = word.slice(0, 1);
+	
+		
 	}
-
-
+	
 	function sentenceToPigLatin(sentence) {
 		var words = sentence.split(" ");
+		
 		for (var wordIdx = 0; wordIdx < words.length; wordIdx = wordIdx + 1){
 			words[wordIdx] = wordToPigLatin(words[wordIdx]);
+			
+			var result = words.join(" ");
+			console.log(result.slice(0,1));
 		}
-		var result = words.join(" ");
-		$("p").html(result);
 	}
 });
 
